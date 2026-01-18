@@ -36,7 +36,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
       try {
         final position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high,
+
         );
 
         final query =

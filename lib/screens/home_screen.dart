@@ -55,14 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
             BlocBuilder<WeatherBloc, WeatherState>(
               builder: (context, state) {
                 return ElevatedButton(
-                  onPressed: state.isLocationEmpty
-                      ? null
-                      : () {
-                          StorageHelper.saveLocation(controller.text);
-                          context.read<WeatherBloc>().add(
-                            FetchWeatherByLocation(controller.text),
-                          );
-                        },
+                  onPressed: () {
+                    StorageHelper.saveLocation(controller.text);
+                    context.read<WeatherBloc>().add(
+                      FetchWeatherByLocation(controller.text),
+                    );
+                  },
                   child: Text(state.isLocationEmpty ? "Save" : "Update"),
                 );
               },
